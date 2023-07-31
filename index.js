@@ -150,9 +150,9 @@ const job = schedule.scheduleJob('* * * * *', async () => {
   try {
     // Call three APIs using POST requests
     const APIENDPOINT = 'https://server.xtendr.co/TGP/sandfoot_connect_api/pages/sandfoot_api/communication_data_api.php';
-    const response1 = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&email=testing@gmail.com&type=getLBdata&gameType=sandsurf`, {});
-    const response2 = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&email=testing@gmail.com&type=getLBdata&gameType=football`, {});
-    const response3 = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&email=testing@gmail.com&type=getLBdata&gameType=skateboard`, {});
+    const response1 = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&email=testing@gmail.com&type=getLBdata&gameType=sandsurf`, {});
+    const response2 = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&email=testing@gmail.com&type=getLBdata&gameType=football`, {});
+    const response3 = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&email=testing@gmail.com&type=getLBdata&gameType=skateboard`, {});
     // Process the returned arrays
     const array1 =  response1.data;
     const array2 = response2.data;
@@ -172,7 +172,7 @@ const job = schedule.scheduleJob('* * * * *', async () => {
         myScores1[element1.email] = element1.score;
         if (element1.score > 299999 || blockedEmails.includes(element1.email)) {
           const score = getScore(element1)
-          const res = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&name=${element1.name}&email=${element1.email}&type=update_addup_score&score=${score}&gameType=sandsurf`, {});
+          const res = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&name=${element1.name}&email=${element1.email}&type=update_addup_score&score=${score}&gameType=sandsurf`, {});
           console.log(`Modified element1 with email ${element1.email} and set score to ${score}.`);
         }
       }
@@ -184,7 +184,7 @@ const job = schedule.scheduleJob('* * * * *', async () => {
         myScores2[element2.email] = element2.score;
         if (element2.score > 299999 || blockedEmails.includes(element2.email)) {
           const score = getScore(element2)
-          const res = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&name=${element2.name}&email=${element2.email}&type=update_addup_score&score=${score}&gameType=football`, {});
+          const res = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&name=${element2.name}&email=${element2.email}&type=update_addup_score&score=${score}&gameType=football`, {});
           console.log(`Modified element2 with email ${element2.email} and set score to ${score}.`);
         }
       }
@@ -196,7 +196,7 @@ const job = schedule.scheduleJob('* * * * *', async () => {
         myScores3[element3.email] = element3.score;
         if (element3.score > 299999 || blockedEmails.includes(element3.email)) {
           const score = getScore(element3)
-          const res = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&name=${element3.name}&email=${element3.email}&type=update_addup_score&score=${score}&gameType=skateboard`, {});
+          const res = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&name=${element3.name}&email=${element3.email}&type=update_addup_score&score=${score}&gameType=skateboard`, {});
           console.log(`Modified element3 with email ${element3.email} and set score to ${score}.`);
         }
       }
@@ -207,7 +207,7 @@ const job = schedule.scheduleJob('* * * * *', async () => {
         let score = myScores1[email] || 0;
           if(!myScores1[email] || score < max1) {
             const updatedScore = max1 - score + Math.random() * 1000; 
-            const res = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&name=${ourDetails1[email]}&email=${email}&type=update_addup_score&score=${updatedScore}&gameType=sandsurf`, {});
+            const res = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&name=${ourDetails1[email]}&email=${email}&type=update_addup_score&score=${updatedScore}&gameType=sandsurf`, {});
           }
       }))
     }
@@ -221,7 +221,7 @@ const job = schedule.scheduleJob('* * * * *', async () => {
           const updatedScore = max2 - score + Math.floor(Math.random() * 1000); 
           
 
-          const res = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&name=${ourDetails2[email]}&email=${email}&type=update_addup_score&score=${updatedScore}&gameType=football`, {});
+          const res = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&name=${ourDetails2[email]}&email=${email}&type=update_addup_score&score=${updatedScore}&gameType=football`, {});
         }
       }))
     
@@ -232,7 +232,7 @@ const job = schedule.scheduleJob('* * * * *', async () => {
         let score = myScores3[email] || 0;
           if(!myScores3[email] || score < max3) {
             const updatedScore = max3 - score + Math.random() * 1000; 
-            const res = await axios.post(APIENDPOINT, `timestamp=${new Date().getTime()}&name=${ourDetails3[email]}&email=${email}&type=update_addup_score&score=${updatedScore}&gameType=skateboard`, {});
+            const res = await axios.post(APIENDPOINT, `timestamp=${1690669750977}&name=${ourDetails3[email]}&email=${email}&type=update_addup_score&score=${updatedScore}&gameType=skateboard`, {});
           }
       }))
     }
